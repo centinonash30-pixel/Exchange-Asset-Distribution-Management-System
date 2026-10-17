@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class DatabaseConnection {
 
-    private static final String URL = "jdbc:sqlite:exchange_system.db";
+    private static final String URL = "jdbc:exchange_system.db";
 
     private DatabaseConnection() {
     }
@@ -21,6 +21,7 @@ public class DatabaseConnection {
                 CREATE TABLE IF NOT EXISTS users (
                     id       INTEGER PRIMARY KEY AUTOINCREMENT,
                     username TEXT NOT NULL UNIQUE,
+                    full_name TEXT NOT NULL,
                     password TEXT NOT NULL,
                     roles    TEXT NOT NULL CHECK (roles IN ('ADMIN', 'INVENTORY_STAFF', 'EMPLOYEE')),
                     status   TEXT NOT NULL DEFAULT 'PENDING'
